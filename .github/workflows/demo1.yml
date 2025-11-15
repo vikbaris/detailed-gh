@@ -4,6 +4,13 @@ on:
     types:
       - opened
   workflow_dispatch:
+  push:
+    branches:  # filtreler
+      - main
+      - 'dev-*'  #  any branchs start with dev like dev-new or dev-new-tets
+      - 'feat/**'  # feat/new or feat/new/button
+    paths-ignore:
+      - '.github/workflows/*' # bu degisikliklerde tetiklenmeyecek
 jobs:
   deploy:
     runs-on: ubuntu-latest
